@@ -1,3 +1,11 @@
+:root {
+    --primary-color: #3c3c3c;
+    --secondary-color: #FFFFFF;
+    --highlight-color: #ac61b9;
+    --darker-background: #092047;
+    --border-radius-base: 8px;
+}
+
 * {
     font-family: "Tektur", sans-serif;
     font-variation-settings:
@@ -5,7 +13,7 @@
 }
 
 section {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 nav {
@@ -20,13 +28,13 @@ nav {
     box-shadow: 0px 4px 4px 0px #00000025;
 
     a {
-        color: #3c3c3c;
+        color: var(--primary-color);
         text-decoration: none;
     }
 }
 
 .title {
-    color: #FFFFFF;
+    color: var(--secondary-color);
     font-size: 3.8rem;
     text-transform: uppercase;
 }
@@ -37,10 +45,14 @@ nav {
     li {
         padding-left: 63px;
     }
+
+    li:last-child {
+        font-weight: bold;
+    }
 }
 
 #homeSection {
-    background-color: #092047;
+    background-color: var(--darker-background);
     display: flex;
     justify-content: space-between;
 
@@ -52,7 +64,7 @@ nav {
         background-position: center;
     }
 
-    #homeTexts {
+    #homeContent {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -84,12 +96,14 @@ nav {
 
         #aboutMeTextsFlexItem {
             width: 80%;
+            display: flex;
+            flex-direction: column;
         }
     }
 
     p {
         font-size: 1.75rem;
-        color: #FFFFFF;
+        color: var(--secondary-color);
         padding: 45px 0 56px 0;
     }
 
@@ -131,15 +145,15 @@ nav {
     li {
         background-color: #FFFFFF80;
         padding: 12px 17px;
-        border-radius: 8px;
-        color: #FFFFFF;
+        border-radius: var(--border-radius-base);
+        color: var(--secondary-color);
         font-size: 1.93rem;
     }
     
 }
 
 #projectsSection {
-    background-color: #092047;
+    background-color: var(--darker-background);
     position: relative;
     height: 100vh;
 
@@ -157,13 +171,11 @@ nav {
     .overlayProjectsContent {
         display: flex;
         gap: 57px;
-        padding: 0 136px 84px 136px;
+        padding: 0 136px 166px 136px;
         overflow-x: auto;
         flex-wrap: nowrap;
         max-width: 100%;
-
-        flex-grow: 1;
-        align-items: flex-end;
+        max-height: fit-content;
     }
 
     h1 {
@@ -173,7 +185,7 @@ nav {
 }
 
 .projectCard {
-    border: 6px solid #3c3c3c;
+    border: 6px solid var(--primary-color);
     border-radius: 24px;
     width: 450px;
     height: 424px;
@@ -190,13 +202,13 @@ nav {
     }
 
     p {
-        color: #FFFFFF;
+        color: var(--secondary-color);
         padding-bottom: 50px;
     }
 
     .projectLink {
         display: flex;
-        color: #FFFFFF;
+        color: var(--secondary-color);
         align-items: center;
         background-color: #63345e;
         width: fit-content;
@@ -227,11 +239,13 @@ nav {
         }
 
         p {
-            color: #FFFFFF;
+            color: var(--secondary-color);
             font-size: 1.56rem;
         }
 
         #contactTextsChild {
+            display: flex;
+            flex-direction: column;
             width: 80%;
             max-width: 700px;
         }
@@ -251,24 +265,24 @@ nav {
     align-items: center;
     width: fit-content;
     padding: 10px 14px;
-    color: #FFFFFF;
-    border-radius: 8px;
+    color: var(--secondary-color);
+    border-radius: var(--border-radius-base);
     cursor: pointer;
 
     a {
         padding-left: 11px;
-        color: #FFFFFF;
+        color: var(--secondary-color);
         text-decoration: none;
     }
 }
 
 .donwloadButtonLight {
-    background-color: #ac61b9;
+    background-color: var(--highlight-color);
 
 }
 
 .downloadButtonDark {
-    background-color: #FFFFFF;
+    background-color: var(--secondary-color);
     
     a {
         color: #000000;
@@ -285,7 +299,7 @@ nav {
 
     a {
         padding-left: 11px;
-        color: #FFFFFF;
+        color: var(--secondary-color);
         text-decoration: none;
     }
 }
@@ -321,11 +335,132 @@ nav {
     a {
         background-color: #FFFFFF30;
         padding: 12px;
-        border-radius: 8px;
+        border-radius: var(--border-radius-base);
     }
 
     img {
         height: 28px;
     }
 
+}
+
+/*Adicionando resposividade*/
+
+@media (orientation: portrait) {
+    .title {
+        font-size: 2.6rem;
+    }
+
+    #homeSection {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        h2 {
+            font-size: 1.71rem;
+        }
+
+        #homePhoto {
+            height: 30vh;
+            width: 30vh;
+            border-radius: 50%;
+            margin-bottom: 3.8rem;
+        }
+
+
+        #homeTexts {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    #aboutMePhoto {
+        display: none;
+    }
+
+    #aboutSection {
+        #aboutMeTextsFlexContainer {
+            width: 100vw;
+        }
+
+        #aboutMeTextsFlexItem {
+            text-align: center;
+            align-items: center;
+        }
+    }
+
+    #contactSection {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        padding: 3.5rem 0;
+
+        h1 {
+            text-align: center;
+        }
+
+        #contactTextsContainer {
+            width: 100vw;
+        }
+
+        #contactPhoto {
+            height: 30vh;
+            width: 30vh;
+            border-radius: 50%;
+            margin-bottom: 1.8rem;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        #contactTextsChild {
+            align-items: center;
+        }
+
+        .contactItem:last-child{
+            text-align: start;
+            img{
+                width: 1.75rem;
+                height: 1.75rem;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 750px) {
+    nav{
+        display: none;
+    }
+}
+
+@media (max-width: 530px) {
+    #projectsSection {
+        h1 {
+            text-align: center;
+            padding-left: 0;
+        }
+    
+        .projectCard {
+            max-width: 80vw;
+            height: auto;
+        }
+
+        .overlayProjectsContent {
+            padding-left: 45px;
+        }
+    }
+
+}
+
+@media (min-width: 825px) and (max-width: 1320px) {
+    #homeSection {
+        #homeContent {
+            padding-left: 40px; 
+            padding-right: 40px;       
+        }
+    }
 }
