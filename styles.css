@@ -3,6 +3,7 @@
     --secondary-color: #FFFFFF;
     --highlight-color: #ac61b9;
     --darker-background: #092047;
+    --darker-background-button: #63345e;
     --border-radius-base: 8px;
 }
 
@@ -210,7 +211,7 @@ nav {
         display: flex;
         color: var(--secondary-color);
         align-items: center;
-        background-color: #63345e;
+        background-color: var(--darker-background-button);
         width: fit-content;
         padding: 11px;
         border-radius: 24px;
@@ -277,7 +278,7 @@ nav {
 }
 
 .donwloadButtonLight {
-    background-color: var(--highlight-color);
+    background-color: var(--darker-background-button);
 
 }
 
@@ -294,7 +295,7 @@ nav {
 }
 
 .linkedinButton {
-    background-color: #FFFFFF50;
+    background-color: var(--darker-background-button);
     padding: 14px 14px;
 
     a {
